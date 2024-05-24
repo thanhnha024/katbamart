@@ -1,0 +1,15 @@
+.zippy-fix-size{
+    display:flex;align-items:center;height:195px;
+}
+.zippy-fix-size img{
+    object-fit: cover;
+}
+.product-item .product-title{
+    height: 81px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

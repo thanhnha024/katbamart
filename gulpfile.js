@@ -1,6 +1,6 @@
 "use strict";
 
-var nameFolderTheme = "shin-child";
+var nameFolderTheme = "weiboo-child";
 var gulp = require("gulp");
 var destFolder = "src/wp-content/themes/" + nameFolderTheme + "/assets/main";
 
