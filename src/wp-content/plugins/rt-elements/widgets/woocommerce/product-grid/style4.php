@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="item-inner">
-                <div class="product-img">
+                <div class="product-img zippy-fix-size">
                     <div class="sale--box">
                         <?php
 
@@ -62,7 +62,10 @@
                     </div>	 
                     <a href="<?php the_permalink() ?>">
                         <?php if ( has_post_thumbnail( get_the_ID() ) ) {
-                            echo get_the_post_thumbnail( get_the_ID(), 'weiboo-h5p-sm' );
+                           $thumbnail_id = get_post_thumbnail_id($post_id);
+                           $image_url_array = wp_get_attachment_image_src($thumbnail_id, 'full');
+                           $image_url = $image_url_array[0];
+                           echo '<img src="' . esc_url($image_url) . '" alt="' . get_the_title(get_the_ID()) . '">';
                         } else {
                             echo '<img src="' . wc_placeholder_img_src() . '" alt="Placeholder" />';
                         } ?>
