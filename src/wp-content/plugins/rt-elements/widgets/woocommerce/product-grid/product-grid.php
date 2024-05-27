@@ -119,6 +119,7 @@ class Rsaddon_Elementor_Pro_Product_Grid_Widget extends \Elementor\Widget_Base {
 					'best-selling-products' => esc_html__('Best Selling Products', 'rsaddon'),
 					'sale-products'         => esc_html__('Sale Products', 'rsaddon'),
 					'top-products'          => esc_html__('Top Rated Products', 'rsaddon'),
+                    'inventory-products'          => esc_html__('Inventory Products', 'rsaddon'),
                 ],
             ]
         );
@@ -529,7 +530,12 @@ class Rsaddon_Elementor_Pro_Product_Grid_Widget extends \Elementor\Widget_Base {
             $args['meta_key'] = 'total_sales';
             $args['orderby'] = 'meta_value_num';
             $args['order'] = 'DESC';
-        } else if ($settings['rs_product_grid_product_filter'] == 'sale-products') {
+        }else if ($settings['rs_product_grid_product_filter'] == 'inventory-products') {
+            $args['meta_key'] = '_stock';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'DESC';
+        }  
+        else if ($settings['rs_product_grid_product_filter'] == 'sale-products') {
             $args['meta_query'] = [
                 'relation' => 'OR',
                 [
