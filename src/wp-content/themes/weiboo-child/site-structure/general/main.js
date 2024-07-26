@@ -1,7 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     function sortWeightList() {
         const ul = document.querySelector('ul[role="radiogroup"]');
+        
+        // Check if the ul element is found
+        if (!ul) {
+            return;
+        }
+
         const items = Array.from(ul.querySelectorAll('li'));
+        
+        // Check if the items list is empty
+        if (items.length === 0) {
+            return;
+        }
 
         const sortedItems = items.sort((a, b) => {
             const getWeight = (item) => {
